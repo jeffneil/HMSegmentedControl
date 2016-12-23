@@ -136,7 +136,7 @@
 
     self.selectedSegmentIndex = 0;
     self.segmentEdgeInset = UIEdgeInsetsMake(0, 5, 0, 5);
-    self.selectionIndicatorHeight = 5.0f;
+    self.selectionIndicatorHeight = 2.0f;
     self.selectionIndicatorEdgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     self.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
     self.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp;
@@ -422,6 +422,8 @@
             
             // Fix rect position/size to avoid blurry labels
             textRect = CGRectMake(ceilf(textRect.origin.x), ceilf(textRect.origin.y), ceilf(textRect.size.width), ceilf(textRect.size.height));
+            
+            textRect.size.height += 5;
 
             CATextLayer *titleLayer = [CATextLayer layer];
             titleLayer.frame = textRect;
